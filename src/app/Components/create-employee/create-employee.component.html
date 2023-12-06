@@ -1,0 +1,72 @@
+<div class="flex-container center-center">
+    <h1>Create Employee</h1>
+</div>
+
+<form class="form" [formGroup]="registerEmployee" (ngSubmit)="onSubmit()">   
+<div class="field">
+    <label>Employee Id: </label><tr></tr>
+    <input name="employeeId" type="text" class="form-control" formControlName="employeeId"
+    [class.invalid]="
+    registerEmployee.get('employeeId')?.invalid &&
+    (registerEmployee.get('employeeId')?.dirty ||
+    registerEmployee.get('employeeId')?.touched || isSubmitted)"/>
+
+    <span *ngIf="registerEmployee.get('employeeId')?.hasError('required') &&
+    (registerEmployee.get('employeeId')?.dirty ||
+    registerEmployee.get('employeeId')?.touched || isSubmitted)"
+    class="error"
+    >Required field</span>   
+</div>
+<tr></tr>
+<div class="field">
+    <label>Name: </label><tr></tr>
+    <input name="firstName" type="text" class="form-control" formControlName="firstName"
+    [class.invalid]="
+    registerEmployee.get('firstName')?.invalid &&
+    (registerEmployee.get('firstName')?.dirty ||
+    registerEmployee.get('firstName')?.touched || isSubmitted)">
+    
+    <span *ngIf="registerEmployee.get('firstName')?.hasError('required') &&
+    (registerEmployee.get('firstName')?.dirty ||
+    registerEmployee.get('firstName')?.touched || isSubmitted)"
+    class="error"
+    >Required field</span> 
+</div>
+<tr></tr>
+<div class="field">
+    <label>Last Name: </label><tr></tr>
+    <input name="lastName" type="text" class="form-control" formControlName="lastName"
+    [class.invalid]="
+    registerEmployee.get('lastName')?.invalid &&
+    (registerEmployee.get('lastName')?.dirty ||
+    registerEmployee.get('lastName')?.touched || isSubmitted)">
+
+<span *ngIf="registerEmployee.get('lastName')?.hasError('required') &&
+(registerEmployee.get('lastName')?.dirty ||
+registerEmployee.get('lastName')?.touched || isSubmitted)"
+class="error"
+>Required field</span> 
+</div>
+<tr></tr>
+<div class="field">
+    <label>Date of Birth: </label><tr></tr>
+    <input name="dateOfBirth" type="date" class="form-control" formControlName="dateOfBirth">
+</div>
+<div class="flex-container center-center">
+    <mat-card-actions>
+        <button mat-raised-button color="primary" class="marginButton" mattooltip="df" type="submit">
+            <i class='fa fa-save fa-fw'></i> Save
+        </button>
+        <button mat-raised-button color="warn" mattooltip="df" type="button" (click)="cancel()">
+            <i class='fa fa-times fa-fw'></i> Cancel
+        </button>       
+    </mat-card-actions>
+  </div>
+</form>
+
+
+
+
+ 
+  
+  

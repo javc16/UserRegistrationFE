@@ -6,9 +6,9 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ModalComponent } from './modal.component';
+import { ModalComponent } from '../../Components/modal/modal.component';
 import { DOCUMENT } from '@angular/common';
-import { EmployeeService } from '../../Services/Employee/employee.service';
+import { EmployeeService } from '../Employee/employee.service';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'

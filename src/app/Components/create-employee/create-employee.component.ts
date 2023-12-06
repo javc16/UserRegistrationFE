@@ -1,8 +1,7 @@
 import { Component,TemplateRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmployeeService } from '../../Services/Employee/employee.service';
-import { ModalService } from '../modal/modal.service';
+import { ModalService } from '../../Services/Modal/modal.service';
 
 @Component({
   selector: 'app-create-employee',

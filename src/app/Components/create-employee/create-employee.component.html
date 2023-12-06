@@ -54,7 +54,8 @@ class="error"
 </div>
 <div class="flex-container center-center">
     <mat-card-actions>
-        <button mat-raised-button color="primary" class="marginButton" mattooltip="df" type="submit">
+        <button mat-raised-button color="primary" class="marginButton" mattooltip="df" type="button"
+        (click)="openModal(modalTemplate)">
             <i class='fa fa-save fa-fw'></i> Save
         </button>
         <button mat-raised-button color="warn" mattooltip="df" type="button" (click)="cancel()">
@@ -67,6 +68,8 @@ class="error"
 
 
 
- 
+<ng-template #modalTemplate>
+    <div>Are you sure</div>
+  </ng-template>
   
   

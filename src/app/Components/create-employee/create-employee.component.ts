@@ -1,7 +1,8 @@
-import { Component} from '@angular/core';
+import { Component,TemplateRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute,Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { EmployeeService } from '../../Services/Employee/employee.service';
+import { ModalService } from '../modal/modal.service';
 
 @Component({
   selector: 'app-create-employee',
@@ -20,22 +21,24 @@ isSubmitted = false;
   ( 
     private router: Router,
     private fb:FormBuilder,
-    private employeeService: EmployeeService,
+    private modalService: ModalService
   ) {}
 
   cancel() {
     this.router.navigate(['']);
   }
 
-  onSubmit():void{
-    this.employeeService.create(this.registerEmployee.value)
-    .subscribe((res: any) => {
-      console.log("Added");
-      this.router.navigate(['']).then(() => {
-        window.location.reload();
-      });
-    })
+  onSubmit():void{  
     this.isSubmitted =true;
+  }
+
+  openModal(modalTemplate: TemplateRef<any>) {
+    this.modalService
+      .open(modalTemplate,this.registerEmployee.value, { size: 'lg', title: 'Saving' })
+      .subscribe((action) => {
+        console.log('modalAction', action);
+      });
+      this.onSubmit()
   }
 
 }

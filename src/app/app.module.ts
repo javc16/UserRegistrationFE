@@ -10,6 +10,7 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalService } from './Components/modal/modal.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     provideHttpClient(withFetch()),
-    
+    ModalService
   ],
   bootstrap: [AppComponent]
 })
